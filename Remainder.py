@@ -21,6 +21,7 @@ def set():
             print(dt)
             t = dt.timestamp()
             print(t)
+            label.config(text=f'Напоминание на {hour}:{minute}')
         except Exception as e:
             mb.showerror('ошибка!', f'Произошла ошибка {e}.')
 
@@ -36,7 +37,7 @@ def check():
 
 
 def play_snd():
-    global mosic
+    global music
     music = True
     pygame.mixer.init()
     pygame.mixer.music.load('reminder.mp3')
@@ -58,7 +59,7 @@ label.pack(pady=10)
 set_button = Button(text='Установить напоминаине', command=set)
 set_button.pack()
 
-stop_button = Button('Остановить музыку', command=stop_music)
+stop_button = Button(text='Остановить музыку', command=stop_music)
 stop_button.pack(pady=10)
 
 check()
